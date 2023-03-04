@@ -1,12 +1,22 @@
 import 'dart:ffi';
-
+//import 'dart:html';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-// import 'homescreen.dart';
-import 'api.dart';
+import 'demo/bloc/demo_bloc.dart';
+import 'homescreen.dart';
+import 'module/servicelist/servicelist.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp( MultiBlocProvider(
+    providers:[
+      BlocProvider(
+        create: (_) => DemoBloc()
+      ),
+    
+    ],
+    child: const MyApp()
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -17,7 +27,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home: const MySecondPage(title: 'Linked Devices'),
+      home: const MyHomePage(
+        title: 'Home',
+      ),
     );
   }
 }

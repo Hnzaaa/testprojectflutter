@@ -1,3 +1,4 @@
 import 'package:flutter/material.dart';
 
-final appbarcolor = const Color(0xFF076ebb);
+const Color appbarcolor = Color(0xFF076ebb);
+const Icon icon = Icon(Icons.home_outlined);
